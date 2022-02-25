@@ -4,16 +4,6 @@ import FilterSearch from '../components/FilterSearch/FilterSearch';
 import Property from '../components/Property/Property';
 import { fetchData } from '../utils/fetchApi';
 import './Searched.scss';
-
-interface Props {
-  setQuery: any;
-  query: {
-    for: string;
-    type: string;
-    price: string;
-  };
-}
-
 interface Properties {
   id: number;
   coverPhoto?: {
@@ -40,7 +30,7 @@ const Searched = () => {
   const typeQuery = searchParams.get('typeID');
   const sortQuery = searchParams.get('sort');
   const [properties, setProperties] = useState<Properties[]>();
-  const [page, setPage] = useState<number>(0);
+  // const [page, setPage] = useState<number>(0);
   const [query, setQuery] = useState({
     for: forQuery?.split('-')[1],
     type: typeQuery || '16',
@@ -52,7 +42,7 @@ const Searched = () => {
       setLoading(true);
       try {
         const res = await fetchData(
-          `properties/list?locationExternalIDs=5002&purpose=${forQuery}&hitsPerPage=25&page=${page}${
+          `properties/list?locationExternalIDs=5002&purpose=${forQuery}&hitsPerPage=25&page=0${
             typeQuery && '&categoryExternalID=' + typeQuery
           }${sortQuery ? '&sort=' + sortQuery : ''}`
         );
@@ -64,7 +54,7 @@ const Searched = () => {
       }
     };
     fetchForSale();
-  }, [forQuery, typeQuery, sortQuery, page]);
+  }, [forQuery, typeQuery, sortQuery]);
 
   return (
     <main className="main">
