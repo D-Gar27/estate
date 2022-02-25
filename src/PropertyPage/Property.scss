@@ -1,0 +1,68 @@
+@import '../variables';
+
+.property-page {
+  width: 100vw;
+  min-height: 100vh;
+  color: $black;
+  padding-top: 7rem;
+  font-size: clamp(1rem, 5vw + 1rem, 1.3rem);
+  .loading {
+    margin-top: 20rem;
+    text-align: center;
+  }
+  .property-container {
+    @include flex(center, flex-start, $vertical: true);
+    gap: 2rem;
+    .carosel {
+      width: 100%;
+      margin-inline: auto;
+      aspect-ratio: 8 / 4;
+      max-width: 40rem;
+      overflow: hidden;
+      padding: 1rem;
+      cursor: grab;
+      background-color: $gray;
+      .inner-caro {
+        width: 100%;
+        height: 100%;
+        gap: 1rem;
+        display: flex;
+        .img-container {
+          min-width: 100%;
+          height: 100%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+    .room_bath {
+      @include flex(flex-start, center);
+      gap: 1.5rem;
+      p {
+        @include flex(flex-start, center);
+        gap: 0.25rem;
+        font-weight: bold;
+        color: $mainClr;
+      }
+    }
+    .agency {
+      @include flex(space-between, center);
+      width: 100%;
+      img {
+        width: 3rem;
+        object-fit: contain;
+      }
+    }
+    .price {
+      font-weight: bold;
+    }
+    .title {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+  }
+}

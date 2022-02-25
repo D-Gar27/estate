@@ -1,0 +1,50 @@
+@import '../../variables';
+
+.filter-search {
+  margin-top: 2rem;
+  @include flex(center, center);
+  gap: 3rem;
+  flex-wrap: wrap;
+  color: $black;
+  .query {
+    label {
+      font-weight: bold;
+      font-size: 1.025rem;
+    }
+    select {
+      outline: none;
+      margin-left: 0.5rem;
+      background-color: transparent;
+      border: none;
+      border-bottom: solid 1.5px $black;
+      padding: 0.3rem 1rem;
+      color: $black;
+      font-weight: bold;
+      font-size: 1.025rem;
+      & * {
+        color: $black;
+        padding-block: 0.25rem;
+      }
+    }
+  }
+  .search-btn {
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 1rem;
+    font-weight: 700;
+    padding: 0.3rem 1rem;
+    color: $mainClr;
+    border: 2px solid $mainClr;
+    @include speed(color);
+    &:hover {
+      background-color: $mainClr;
+      color: $white;
+    }
+  }
+}
+
+@include wide-mobile {
+  .filter-search {
+    gap: 2rem;
+  }
+}

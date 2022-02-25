@@ -1,0 +1,42 @@
+@import '../../variables';
+
+.property {
+  cursor: pointer;
+  width: 100%;
+  max-width: 27rem;
+  padding: 1rem;
+  background-color: $white;
+  box-shadow: $shadow;
+  border-radius: 1rem;
+  color: $black;
+  @include flex(center, flex-start, $vertical: true);
+  gap: 0.5rem;
+  @include speed(transform);
+  img {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
+  }
+  .room_bath {
+    @include flex(flex-start, center);
+    gap: 1.5rem;
+    p {
+      @include flex(flex-start, center);
+      gap: 0.25rem;
+      font-weight: bold;
+      color: $mainClr;
+    }
+  }
+  .price {
+    width: 100%;
+    @include flex(space-between, center);
+    img {
+      width: 4rem;
+      object-fit: contain;
+    }
+  }
+}
+
+.property:hover {
+  transform: scale(1.025);
+}
